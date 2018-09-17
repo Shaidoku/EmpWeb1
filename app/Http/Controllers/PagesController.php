@@ -58,5 +58,6 @@ class PagesController extends Controller
         $message->save();
         return redirect()->route('pages.contact')->with('flash', 'Gracias por contactarnos, tu mensaje a sido enviado espera una repuesta en tu correo.');
     }
+
 }
  

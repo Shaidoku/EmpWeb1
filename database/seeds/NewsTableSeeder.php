@@ -3,7 +3,10 @@
 use App\Rol;
 use App\News;
 use App\User;
+use App\chats;
 use App\Event;
+use App\Project;
+use App\messages;
 use App\Category;
 use Carbon\Carbon;
 use App\Messagesweb;
@@ -22,34 +25,109 @@ class NewsTableSeeder extends Seeder
         Rol::truncate();
         News::truncate();
         User::truncate();
+        Chats::truncate();
         Event::truncate();
+        Project::truncate();
+        Messages::truncate();
         Category::truncate();
         Messagesweb::truncate();
 
         //Usuarios
         $user =new User;
-        $user->name = 'Joan';
-        $user->last_name = 'Ortiz';
+        $user->foto = '/img/users/a2.jpg';
+        $user->names = 'Joan Manuel';
+        $user->apeP = 'Ocaña';
+        $user->apeM = 'Ortiz';
+        $user->edad = '22';
+        $user->ocup = 'Estudiante';
+        $user->desc = 'Conocimientos en programación, analicis y modelado de S.I...';
+        $user->premium = '1';
+        $user->tel = '4444575509';
         $user->email = 'JoanOrtizITSLP@outlook.com';
         $user->password = bcrypt('1');
         $user->rol_id = '1';
         $user->save();
         //2
         $user =new User;
-        $user->name = 'Alfredo';
-        $user->last_name = 'Loredo';
+        $user->foto = '/img/users/a1.jpg';
+        $user->names = 'Jose Alfredo';
+        $user->apeP = 'Loredo';
+        $user->apeM = 'Canales';
+        $user->edad = '21';
+        $user->ocup = 'Ensamblador';
+        $user->desc = 'Conocimientos en ensamblado, control de calidad...';
+        $user->premium = '0';
+        $user->tel = '4444746589';
         $user->email = 'Alfredo@outlook.com';
         $user->password = bcrypt('1');
         $user->rol_id = '2';
         $user->save();
         //3
         $user =new User;
-        $user->name = 'Ana';
-        $user->last_name = 'Lara';
+        $user->foto = '/img/users/a3.jpg';
+        $user->names = 'Ana';
+        $user->apeP = 'Alvarado';
+        $user->apeM = 'Loera';
+        $user->edad = '23';
+        $user->ocup = 'Educadora';
+        $user->desc = 'Psicologia, educación infantil...';
+        $user->premium = '0';
+        $user->tel = '4444746589';
         $user->email = 'Ana@outlook.com';
         $user->password = bcrypt('1');
         $user->rol_id = '3';
         $user->save();
+
+        //Projects
+        $proyect =new Project;
+        $proyect->user_id = '1';
+        $proyect->title = 'Tutorias en linea';
+        $proyect->desc = 'Tutorias en linea para desempeño academico...';
+        $proyect->adv = '80';
+        $proyect->need = 'Mas programadores para terminar el codigo.';
+        $proyect->save();
+        //2
+        $proyect =new Project;
+        $proyect->user_id = '2';
+        $proyect->title = 'Eco Bici';
+        $proyect->desc = 'Bici que genera electricidad con el movimiento...';
+        $proyect->adv = '65';
+        $proyect->need = 'Requiero fondeo para terminar el prototipo.';
+        $proyect->save();
+
+        //Chats
+        $chat =new Chats;
+        $chat->title='Alfredo';
+        $chat->tlf='4444746589';
+        $chat->user_id_rem='1';
+        $chat->user_id_des='2';
+        $chat->save();
+        //2
+        $chat =new Chats;
+        $chat->title='Joan';
+        $chat->tlf='4444575509';
+        $chat->user_id_rem='2';
+        $chat->user_id_des='1';
+        $chat->save();
+
+        //Messages
+        $message =new Messages;
+        $message->chat_id='1';
+        $message->message='Buen dia Alfredo';
+        $message->user_id='1';
+        $message->save();
+        //2
+        $message =new Messages;
+        $message->chat_id='1';
+        $message->message='Buen dia,';
+        $message->user_id='2';
+        $message->save();
+        //3
+        $message =new Messages;
+        $message->chat_id='1';
+        $message->message='Me interesa tu proyecto';
+        $message->user_id='1';
+        $message->save();
 
         //Roles
         $rol =new Rol;
@@ -62,6 +140,22 @@ class NewsTableSeeder extends Seeder
         //3
         $rol =new Rol;
         $rol->name = 'Contacto';
+        $rol->save();
+        //4
+        $rol =new Rol;
+        $rol->name = 'Other';
+        $rol->save();
+        //5
+        $rol =new Rol;
+        $rol->name = 'Other';
+        $rol->save();
+        //6
+        $rol =new Rol;
+        $rol->name = 'Other';
+        $rol->save();
+        //7
+        $rol =new Rol;
+        $rol->name = 'UserApp';
         $rol->save();
 
         //categorias
@@ -99,6 +193,7 @@ class NewsTableSeeder extends Seeder
         $new->title = "Nuevas tecnologias";
         $new->excerpt = "Lanzan los ultimos avances tecnologicos de el 2018...";
         $new->link = "http://www.elfinanciero.com.mx/tech/las-10-nuevas-tecnologias-de-2018";
+        $new->img = "/img/noticias/n1.jpg";
         $new->fecha = Carbon::now();
         $new->user_id = 3;
         $new->save();
@@ -108,6 +203,7 @@ class NewsTableSeeder extends Seeder
         $new->title = "Frutos rojos ecológicos y sostenibles";
         $new->excerpt = "La PIME Flor de Doñana prevé producir durante esta campaña 2.000 toneladas de bayas...";
         $new->link = "https://elpais.com/economia/2018/05/16/actualidad/1526481593_932845.html";
+        $new->img = "/img/noticias/n2.jpg";
         $new->fecha = Carbon::now();
         $new->user_id = 2;
         $new->save();
@@ -117,6 +213,7 @@ class NewsTableSeeder extends Seeder
         $new->title = "Cerveceros “de olla y pala”";
         $new->excerpt = "Tres emprendedores de Castellón unidos por su pasión cervecera dan pulso a Castelló Beer Factory, un proyecto artesanal que sigue sumando litros y acumulando premios...";
         $new->link = "https://elpais.com/ccaa/2018/05/26/valencia/1527352217_397845.html";
+        $new->img = "/img/noticias/n3.jpg";
         $new->fecha = Carbon::now();
         $new->user_id = 3;
         $new->save();
@@ -126,6 +223,7 @@ class NewsTableSeeder extends Seeder
         $new->title = "Los desafíos de emprender en la era digital";
         $new->excerpt = "En todo el mundo, las nuevas tecnologías pueden representar amenazas y oportunidades. ¿Cuál es la mirada de los jóvenes emprendedores en América Latina?...";
         $new->link = "https://elpais.com/internacional/2018/05/03/america/1525362732_996156.html";
+        $new->img = "/img/noticias/n4.jpg";
         $new->fecha = Carbon::now();
         $new->user_id = 2;
         $new->save();
@@ -135,6 +233,7 @@ class NewsTableSeeder extends Seeder
         $new->title = "El rentable negocio de invertir en emprendedoras";
         $new->excerpt = "Las mujeres pueden ser cruciales en la generación de riqueza, pero para ello debemos romper el estigma de que un negocio que aporte beneficios sociales no puede ser rentable...";
         $new->link = "https://elpais.com/elpais/2018/04/18/planeta_futuro/1524056570_515846.html";
+        $new->img = "/img/noticias/n5.jpg";
         $new->fecha = Carbon::now();
         $new->user_id = 3;
         $new->save();
