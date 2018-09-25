@@ -18,8 +18,8 @@
                 <tbody>
                     @foreach ($users as $user)
                         <tr>
-                 	        <td>{{$user->name}}</td>
-                 	        <td>{{$user->last_name}}</td>
+                 	        <td>{{$user->names}}</td>
+                 	        <td>{{$user->apeP}}</td>
                  	        <td>{{$user->email}}</td>
                  	        <td> 
                                 <a href="{{route('admin.users.show', $user)}}" target="_blanki" class="btn btn-xs btn-default"><i class="fa fa-eye"></i></a> 

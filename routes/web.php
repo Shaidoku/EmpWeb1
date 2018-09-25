@@ -53,9 +53,4 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth
        
 
 });
-
-//App
-Route::get('appnews', function(){
-       return $news = App\News::all();
-});
-        
+   

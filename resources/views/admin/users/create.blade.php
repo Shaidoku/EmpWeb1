@@ -11,14 +11,14 @@
              {{csrf_field()}} <!--{method_field('PUT')}}-->
                 <div class="box-body">
                     <div class="form-group {{$errors->has('name') ? 'has-error' : ''}}">
-                        <label>Nombre</label>
-                        <input class="form-control" name="name">
-                        {!!$errors->first('name','<span class="help-block">:message</span>')!!}
+                        <label>Nombre(s)</label>
+                        <input class="form-control" name="names">
+                        {!!$errors->first('names','<span class="help-block">:message</span>')!!}
                     </div>
                     <div class="form-group {{$errors->has('last_name') ? 'has-error' : ''}}">
-                        <label>Apellido</label>
-                        <input class="form-control" name="last_name" >
-                        {!!$errors->first('last_name','<span class="help-block">:message</span>')!!}
+                        <label>Apellido Paterno</label>
+                        <input class="form-control" name="apeP" >
+                        {!!$errors->first('apeP','<span class="help-block">:message</span>')!!}
                     </div>
                     <div class="form-group {{$errors->has('email') ? 'has-error' : ''}}">
                         <label>Correo</label>

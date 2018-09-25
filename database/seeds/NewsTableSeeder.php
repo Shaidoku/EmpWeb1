@@ -97,17 +97,8 @@ class NewsTableSeeder extends Seeder
 
         //Chats
         $chat =new Chats;
-        $chat->title='Alfredo';
-        $chat->tlf='4444746589';
         $chat->user_id_rem='1';
         $chat->user_id_des='2';
-        $chat->save();
-        //2
-        $chat =new Chats;
-        $chat->title='Joan';
-        $chat->tlf='4444575509';
-        $chat->user_id_rem='2';
-        $chat->user_id_des='1';
         $chat->save();
 
         //Messages

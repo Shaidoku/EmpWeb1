@@ -37,8 +37,8 @@ class UsersController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'name' => 'required',
-            'last_name' => 'required',
+            'names' => 'required',
+            'apeP' => 'required',
             'email' => 'required',
             'password' => 'required',
             'rol_id' => 'required'
@@ -46,8 +46,8 @@ class UsersController extends Controller
         ]);
 
         $user = new User;
-        $user->name = $request->get('name');
-        $user->last_name = $request->get('last_name');
+        $user->names = $request->get('names');
+        $user->apeP = $request->get('apeP');
         $user->email = $request->get('email');
         $user->password = bcrypt($request->get('password'));
         $user->rol_id = $request->get('rol_id');;
