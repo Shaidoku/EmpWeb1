@@ -1,5 +1,16 @@
 <?php
 
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
+|
+*/
+
 //Rutas de la vista publica
 Route::get('/', 'PagesController@home')->name('pages.home');
 Route::get('nosotros', 'PagesController@about')->name('pages.about');
@@ -24,14 +35,14 @@ Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth'], function(){
 
        //Rutas de vista para contenidos
-       Route::get('news', 'NewsController@index')->name('admin.news.index');
+       Route::get('news', 'NoticiasController@index')->name('admin.news.index');
        Route::get('events', 'EventsController@index')->name('admin.events.index');
        Route::get('messages', 'MessagesController@index')->name('admin.messages.index');
        Route::get('users', 'UsersController@index')->name('admin.users.index');
 
        //Rutas de creacion para contenidos
-       Route::get('news/create', 'NewsController@create')->name('admin.news.create');
-       Route::post('news', 'NewsController@store')->name('admin.news.store');
+       Route::get('news/create', 'NoticiasController@create')->name('admin.news.create');
+       Route::post('news', 'NoticiasController@store')->name('admin.news.store');
        Route::get('events/create', 'EventsController@create')->name('admin.events.create');
        Route::post('events', 'EventsController@store')->name('admin.events.store');
        Route::get('messages/create', 'MessagesController@create')->name('admin.messages.create');
@@ -39,13 +50,13 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth
        Route::post('users', 'UsersController@store')->name('admin.users.store');
 
        //Rutas de muetra detallada para contenidos
-       Route::get('news/{new}', 'NewsController@show')->name('admin.news.show');
+       Route::get('news/{new}', 'NoticiasController@show')->name('admin.news.show');
        Route::get('events/{event}', 'EventsController@show')->name('admin.events.show');
        Route::get('messages/{message}', 'MessagesController@show')->name('admin.messages.show');
        Route::get('users/{user}', 'UsersController@show')->name('admin.users.show');
 
        //Rutas de eliminacion para contenidos
-       Route::delete('news/{new}', 'NewsController@destroy')->name('admin.news.destroy');
+       Route::delete('news/{new}', 'NoticiasController@destroy')->name('admin.news.destroy');
        Route::delete('events/{event}', 'EventsController@destroy')->name('admin.events.destroy');
        Route::delete('messages/{message}', 'MessagesController@destroy')->name('admin.messages.destroy');
        Route::delete('users/{user}', 'UsersController@destroy')->name('admin.users.destroy');
@@ -53,4 +64,3 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth
        
 
 });
-   

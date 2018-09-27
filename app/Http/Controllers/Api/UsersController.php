@@ -1,12 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Api;
 
-use App\MessageWeb;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class MessagesController extends Controller
+class UsersController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +14,7 @@ class MessagesController extends Controller
      */
     public function index()
     {
-        $messages = MessageWeb::all();
-        return view('admin.messages.index', compact('messages'));
+        //
     }
 
     /**
@@ -46,9 +44,9 @@ class MessagesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-     public function show(MessageWeb $message)
+    public function show($id)
     {
-        return view('admin.messages.show', compact('message'));
+        //
     }
 
     /**
@@ -80,11 +78,8 @@ class MessagesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(MessageWeb $message)
+    public function destroy($id)
     {
-
-      $message->delete();
-
-      return back()->withFlash('El mensaje ha sido eliminada');
+        //
     }
 }

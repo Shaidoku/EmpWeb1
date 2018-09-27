@@ -25,7 +25,6 @@ class CreateEventsTable extends Migration
             $table->text('link');
             $table->string('tlf');
             $table->unsignedInteger('user_id');
-            //$table->timestamp('fecha')->nullable();
             $table->timestamps();
         });
     }

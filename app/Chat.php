@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class messages extends Model
+class Chat extends Model
 {
     protected $guarded =[];
     
@@ -12,9 +12,4 @@ class messages extends Model
     {
         return $this->belongsTo(User::class, 'user_id');
     }
-    public function owner2()
-    {
-        return $this->hasMany(Chats::class, 'chat_id');
-    }
 }
-

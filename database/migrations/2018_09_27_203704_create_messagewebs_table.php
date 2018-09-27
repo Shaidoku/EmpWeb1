@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMessageswebsTable extends Migration
+class CreateMessagewebsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateMessageswebsTable extends Migration
      */
     public function up()
     {
-        Schema::create('messageswebs', function (Blueprint $table) {
+        Schema::create('messagewebs', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
             $table->string('email');
@@ -31,6 +31,6 @@ class CreateMessageswebsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('messageswebs');
+        Schema::dropIfExists('messagewebs');
     }
 }

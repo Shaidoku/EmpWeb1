@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class News extends Model
+class Noticia extends Model
 {
     protected $guarded =[];
     protected $dates = ['fecha'];
@@ -18,4 +18,3 @@ class News extends Model
         return $this->belongsTo(User::class, 'user_id');
     }
 }
-
