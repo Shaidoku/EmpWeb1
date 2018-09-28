@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Chat;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -9,7 +10,7 @@ class ChatsController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('cliend.credentials')->only(['index','show']);
+        $this->middleware('client.credentials')->only(['index','show']);
     }
 
     /**
@@ -19,7 +20,9 @@ class ChatsController extends Controller
      */
     public function index()
     {
-        //
+        
+        $chats = Chat::all();
+        return $this->showAll($chats);
     }
 
     /**

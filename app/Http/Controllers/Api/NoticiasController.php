@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Noticia;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -9,7 +10,7 @@ class NoticiasController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('cliend.credentials')->only(['index','show']);
+        $this->middleware('client.credentials')->only(['index']);
     }
 
     /**
@@ -21,6 +22,7 @@ class NoticiasController extends Controller
     {
         $news = Noticia::all();
         return $this->showAll($news);
+        //return response()->json($news);
     }
 
     /**

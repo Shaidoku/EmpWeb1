@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Event;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -9,7 +10,7 @@ class EventsController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('cliend.credentials')->only(['index','show']);
+        $this->middleware('client.credentials')->only(['index','show']);
     }
 
     /**
@@ -19,7 +20,8 @@ class EventsController extends Controller
      */
     public function index()
     {
-        //
+        $events = Event::all();
+        return $this->showAll($events);
     }
 
     /**
