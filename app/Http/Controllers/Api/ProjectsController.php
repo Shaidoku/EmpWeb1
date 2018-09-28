@@ -7,6 +7,11 @@ use App\Http\Controllers\Controller;
 
 class ProjectsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('cliend.credentials')->only(['index','show']);
+    }
+
     /**
      * Display a listing of the resource.
      *

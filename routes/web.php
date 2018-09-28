@@ -20,7 +20,7 @@ Route::get('contacto', 'PagesController@contact')->name('pages.contact');
 Route::post('contacto/send', 'PagesController@store')->name('pages.contact.send');
 
 //Rutas de iniocio del panel de control
-Route::get('admin', 'PagesController@index')->middleware('auth');
+Route::get('home', 'PagesController@index')->middleware('auth');
 //*************************************Rutas de autentificacion*********************************************
 // Authentication...
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');

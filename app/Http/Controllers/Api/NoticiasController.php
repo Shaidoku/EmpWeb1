@@ -7,6 +7,11 @@ use App\Http\Controllers\Controller;
 
 class NoticiasController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('cliend.credentials')->only(['index','show']);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +19,8 @@ class NoticiasController extends Controller
      */
     public function index()
     {
-        //
+        $news = Noticia::all();
+        return $this->showAll($news);
     }
 
     /**

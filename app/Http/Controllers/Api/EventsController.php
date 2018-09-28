@@ -7,6 +7,11 @@ use App\Http\Controllers\Controller;
 
 class EventsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('cliend.credentials')->only(['index','show']);
+    }
+
     /**
      * Display a listing of the resource.
      *

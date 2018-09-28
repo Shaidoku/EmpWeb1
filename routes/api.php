@@ -21,3 +21,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 //Route::resource('not','NewsController');
+
+Route::resource('noticias','Api\NoticiasController', ['only' => ['index']]);
+
+Route::post('oauth/token', '\Laravel\Passport\Http\Controllers\AccessTokenController@issueToken');
