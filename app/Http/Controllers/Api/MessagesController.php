@@ -2,17 +2,16 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Event;
+use App\Message;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class EventsController extends Controller
+class MessagesController extends Controller
 {
     public function __construct()
     {
         //$this->middleware('client.credentials')->only(['index','show']);
     }
-
     /**
      * Display a listing of the resource.
      *
@@ -20,8 +19,8 @@ class EventsController extends Controller
      */
     public function index()
     {
-        $events = Event::all();
-        return response()->json($events);
+        $messages = Message::all();
+        return response()->json($messages);
     }
 
     /**

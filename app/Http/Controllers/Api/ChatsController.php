@@ -10,7 +10,7 @@ class ChatsController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('client.credentials')->only(['index','show']);
+        //$this->middleware('client.credentials')->only(['index','show']);
     }
 
     /**
@@ -22,7 +22,7 @@ class ChatsController extends Controller
     {
         
         $chats = Chat::all();
-        return $this->showAll($chats);
+         return response()->json($chats);
     }
 
     /**

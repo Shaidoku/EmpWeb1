@@ -10,7 +10,7 @@ class ProjectsController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('client.credentials')->only(['index','show']);
+        //$this->middleware('client.credentials')->only(['index','show']);
     }
 
     /**
@@ -20,8 +20,8 @@ class ProjectsController extends Controller
      */
     public function index()
     {
-        $events = Project::all();
-        return $this->showAll($events);
+        $projects = Project::all();
+        return response()->json($projects);
     }
 
     /**

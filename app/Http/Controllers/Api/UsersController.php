@@ -10,7 +10,7 @@ class UsersController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('client.credentials')->only(['index','show']);
+        //$this->middleware('client.credentials')->only(['index','show']);
     }
 
     /**
@@ -21,7 +21,7 @@ class UsersController extends Controller
     public function index()
     {
         $users = User::all();
-        return $this->showAll($events);
+        return response()->json($users);
     }
 
     /**

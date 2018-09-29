@@ -10,7 +10,7 @@ class NoticiasController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('client.credentials')->only(['index']);
+        //$this->middleware('client.credentials')->only(['index']);
     }
 
     /**
@@ -21,8 +21,8 @@ class NoticiasController extends Controller
     public function index()
     {
         $news = Noticia::all();
-        return $this->showAll($news);
-        //return response()->json($news);
+        //return $this->showAll($news);
+        return response()->json($news);
     }
 
     /**

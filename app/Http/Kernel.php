@@ -38,7 +38,7 @@ class Kernel extends HttpKernel
         ],
 
         'api' => [
-           'signature:X-Application-Name',
+           //'signature:X-Application-Name',
             'throttle:60,1',
             'bindings',
             //'cores' =>[\Barryvdh\Cors\HandleCors::class,]
