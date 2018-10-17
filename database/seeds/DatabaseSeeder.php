@@ -1,6 +1,5 @@
 <?php
 
-use App\Rol;
 use App\User;
 use App\Chat;
 use App\Event;
@@ -22,7 +21,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        Rol::truncate();
         User::truncate();
         Chat::truncate();
         Event::truncate();
@@ -34,7 +32,7 @@ class DatabaseSeeder extends Seeder
 
         $user =new User;
         $user->foto = '/img/users/a2.jpg';
-        $user->names = 'Joan Manuel';
+        $user->name = 'Joan Manuel';
         $user->apeP = 'Ocaña';
         $user->apeM = 'Ortiz';
         $user->edad = '22';
@@ -44,12 +42,11 @@ class DatabaseSeeder extends Seeder
         $user->tel = '4444575509';
         $user->email = 'JoanOrtizITSLP@outlook.com';
         $user->password = bcrypt('1');
-        $user->rol_id = '1';
         $user->save();
         //2
         $user =new User;
         $user->foto = '/img/users/a1.jpg';
-        $user->names = 'Jose Alfredo';
+        $user->name = 'Jose Alfredo';
         $user->apeP = 'Loredo';
         $user->apeM = 'Canales';
         $user->edad = '21';
@@ -59,12 +56,11 @@ class DatabaseSeeder extends Seeder
         $user->tel = '4444746589';
         $user->email = 'Alfredo@outlook.com';
         $user->password = bcrypt('1');
-        $user->rol_id = '2';
         $user->save();
         //3
         $user =new User;
         $user->foto = '/img/users/a3.jpg';
-        $user->names = 'Ana';
+        $user->name = 'Ana';
         $user->apeP = 'Alvarado';
         $user->apeM = 'Loera';
         $user->edad = '23';
@@ -74,7 +70,6 @@ class DatabaseSeeder extends Seeder
         $user->tel = '4444746589';
         $user->email = 'Ana@outlook.com';
         $user->password = bcrypt('1');
-        $user->rol_id = '3';
         $user->save();
 
         //Projects
@@ -140,37 +135,6 @@ class DatabaseSeeder extends Seeder
         $message->message='Hola';
         $message->user_id='2';
         $message->save();
-
-
-
-        //Roles
-        $rol =new Rol;
-        $rol->name = 'Administrador';
-        $rol->save();
-        //2
-        $rol =new Rol;
-        $rol->name = 'Escritor';
-        $rol->save();
-        //3
-        $rol =new Rol;
-        $rol->name = 'Contacto';
-        $rol->save();
-        //4
-        $rol =new Rol;
-        $rol->name = 'Other';
-        $rol->save();
-        //5
-        $rol =new Rol;
-        $rol->name = 'Other';
-        $rol->save();
-        //6
-        $rol =new Rol;
-        $rol->name = 'Other';
-        $rol->save();
-        //7
-        $rol =new Rol;
-        $rol->name = 'UserApp';
-        $rol->save();
 
         //categorias
         $category = new Category;

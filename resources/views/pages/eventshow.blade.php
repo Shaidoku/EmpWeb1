@@ -7,9 +7,9 @@
 @section('container')
     <section class="posts container">
         <article class="post">
-    	    @if($event->foto != null)
+    	    @if($event->img != null)
                 <figure>
-                	<img src="/img/noticias/{{$event->foto}}" alt="" class="img-responsive">
+                	<img src="/img/noticias/{{$event->img}}" alt="" class="img-responsive">
                 </figure>
                 <!-- elseif($port->iframe)
                     <div class="video">

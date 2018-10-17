@@ -5,7 +5,7 @@
     <div class="col-md-8">
         <div class="box box-success">
             <div class="box-header">
-                <h3 class="box-title">Añade noticia</h3>
+                <h3 class="box-title">Añade Evento</h3>
             </div>
             <form method="POST" action="{{route('admin.events.store')}}">
              {{csrf_field()}} <!--{method_field('PUT')}}-->
@@ -21,14 +21,25 @@
                         {!!$errors->first('excerpt','<span class="help-block">:message</span>')!!}
                     </div>
                     <div class="form-group {{$errors->has('fecha') ? 'has-error' : ''}}">
-                        <label>Fecha</label>
-                        <input class="form-control" name="fecha">
-                        {!!$errors->first('fecha','<span class="help-block">:message</span>')!!}
+                        <label>Fecha:</label>
+                        <div class="input-group date">
+                            <div class="input-group-addon">
+                                <i class="fa fa-calendar"></i>
+                            </div>
+                            <input type="text" name="fecha" class="form-control pull-right" id="datepicker">{!!$errors->first('fecha','<span class="help-block">:message</span>')!!}
+                        </div>
                     </div>
-                    <div class="form-group {{$errors->has('hora') ? 'has-error' : ''}}">
-                        <label>Hora</label>
-                        <input class="form-control" name="hora" placeholder="hh:mm am/pm">
-                        {!!$errors->first('hora','<span class="help-block">:message</span>')!!}
+                    <div class="bootstrap-timepicker">
+                        <div class="form-group {{$errors->has('hora') ? 'has-error' : ''}}">
+                            <label>Hora</label>
+                            <div class="input-group">
+                                <input type="text" name="hora" class="form-control timepicker">
+                                {!!$errors->first('hora','<span class="help-block">:message</span>')!!}
+                                <div class="input-group-addon">
+                                    <i class="fa fa-clock-o"></i>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="form-group {{$errors->has('linkmaps') ? 'has-error' : ''}}">
                         <label>Enlace de la ubicación</label>
@@ -58,7 +69,5 @@
         </div>
     </div>
 </div>
-<!-- CK Editor -->
-<script src="https://cdn.ckeditor.com/4.9.2/standard/ckeditor.js"></script>
-<script>CKEDITOR.replace('editor');</script>
 @stop
+    

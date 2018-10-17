@@ -19,7 +19,7 @@ class CreateNoticiasTable extends Migration
             $table->string('title');
             $table->mediumText('excerpt');
             $table->text('link');
-            $table->text('img');
+            $table->text('img')->nullable();
             $table->timestamp('fecha')->nullable();
             $table->unsignedInteger('user_id');
             $table->timestamps();

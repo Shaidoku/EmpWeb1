@@ -70,7 +70,7 @@ class PagesController extends Controller
             'asunto' => 'required',
             'mensaje' => 'required'
             ]);
-        $message = new MessagesWeb;
+        $message = new MessageWeb;
         $message->fecha = now();
         $message->name = $request->get('name');
         $message->email = $request->get('email');

@@ -1,13 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers;
 
 use App\Noticia;
 use App\Category;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 
-class NoticiasController extends Controller
+class CategoriesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +15,7 @@ class NoticiasController extends Controller
      */
     public function index()
     {
-        $news = Noticia::all();
-        return view('admin.news.index', compact('news'));
+        //
     }
 
     /**
@@ -27,8 +25,7 @@ class NoticiasController extends Controller
      */
     public function create()
     {
-        $categories = Category::all();
-        return view('admin.news.create', compact('categories'));
+        //
     }
 
     /**
@@ -39,22 +36,7 @@ class NoticiasController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'title' => 'required',
-            'category_id' => 'required',
-            'excerpt' => 'required',
-            'link' => 'required'
-
-        ]);
-        $new = new Noticia;
-        $new->category_id = $request->get('category_id');
-        $new->title = $request->get('title');
-        $new->excerpt = $request->get('excerpt');
-        $new->link = $request->get('link');
-        $new->fecha = now();
-        $new->user_id = auth()->id();
-        $new->save();
-        return redirect()->route('admin.news.index', $new)->with('flash', 'Noticia publicada');
+        //
     }
 
     /**
@@ -63,9 +45,12 @@ class NoticiasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Noticia $new)
+    public function show(Category $category)
     {
-        return view('admin.news.show', compact('new'));
+        //return $category->name;
+        //$news = Noticia::latest('fecha')->get();
+        $news = $category->news;
+        return view('pages.newscategory', compact('news','category'));
     }
 
     /**
@@ -97,11 +82,8 @@ class NoticiasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Noticia $new)
+    public function destroy($id)
     {
-
-      $new->delete();
-
-      return back()->withFlash('La noticia ha sido eliminada');
+        //
     }
 }

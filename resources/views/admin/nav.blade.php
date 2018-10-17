@@ -2,7 +2,7 @@
   <li class="header">Controles</li>
 <!--Link de inicio-->
     <li {{request()->is('admin') ? 'class=active' : ''}}>
-      <a href="/admin">
+      <a href="/home">
         <i class="fa fa-institution">
         </i> 
         <span>
@@ -35,8 +35,8 @@
         </li>
         <li {{request()->is('admin/news/create') ? 'class=active' : ''}}>
           <a href="{{route('admin.news.create')}}">
-            <i class=" fa fa-pencil"> 
-              Añadir noticia
+            <i class=" fa fa-plus"> 
+              Crear evento
             </i>
           </a>
         </li>

@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Noticia;
-use App\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class NoticiasController extends Controller
+class PhotosController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +14,7 @@ class NoticiasController extends Controller
      */
     public function index()
     {
-        $news = Noticia::all();
-        return view('admin.news.index', compact('news'));
+        //
     }
 
     /**
@@ -27,8 +24,7 @@ class NoticiasController extends Controller
      */
     public function create()
     {
-        $categories = Category::all();
-        return view('admin.news.create', compact('categories'));
+        //
     }
 
     /**
@@ -37,24 +33,19 @@ class NoticiasController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store()
     {
-        $this->validate($request, [
-            'title' => 'required',
-            'category_id' => 'required',
-            'excerpt' => 'required',
-            'link' => 'required'
-
+        $this->validate(request(),[
+         'photo' => 'image|max:2048'
         ]);
-        $new = new Noticia;
-        $new->category_id = $request->get('category_id');
-        $new->title = $request->get('title');
-        $new->excerpt = $request->get('excerpt');
-        $new->link = $request->get('link');
-        $new->fecha = now();
-        $new->user_id = auth()->id();
-        $new->save();
-        return redirect()->route('admin.news.index', $new)->with('flash', 'Noticia publicada');
+
+        $photo = request()->file('photo');
+        $photo->store('noticias');
+        //$photoName = $photo->store('noticias');
+
+        //$post->photos()->create([
+          // 'url' => Storage::url(request()->file('photo')->store('posts','public')),
+        //]);
     }
 
     /**
@@ -63,9 +54,9 @@ class NoticiasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Noticia $new)
+    public function show($id)
     {
-        return view('admin.news.show', compact('new'));
+        //
     }
 
     /**
@@ -97,11 +88,8 @@ class NoticiasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Noticia $new)
+    public function destroy($id)
     {
-
-      $new->delete();
-
-      return back()->withFlash('La noticia ha sido eliminada');
+        //
     }
 }

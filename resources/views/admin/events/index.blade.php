@@ -21,7 +21,7 @@
                         <tr>
                  	        <td>{{$event->id}}</td>
                  	        <td>{{$event->title}}</td>
-                 	        <td>{{$event->excerpt}}</td>
+                 	        <td>{!!$event->excerpt!!}</td>
                  	        <td>{{$event->fecha}}</td>
                  	        <td> 
                                 <a href="{{route('admin.events.show', $event)}}" target="_blanki" class="btn btn-xs btn-default"><i class="fa fa-eye"></i></a> 

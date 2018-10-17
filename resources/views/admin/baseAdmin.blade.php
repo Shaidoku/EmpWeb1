@@ -46,7 +46,7 @@
             <ul class="dropdown-menu">
               <!-- The user image in the menu -->
               <li class="user-header">
-                <img src="/adminlte/img/Imagen2.png" class="img-circle" alt="User Image">
+                <img src="{{ auth()->user()->foto}}" class="img-circle" alt="User Image">
 
                 <p>
                  {{ auth()->user()->name}} - Web Developer
@@ -77,7 +77,7 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="/adminlte/img/Imagen2.png" class="img-circle" alt="User Image">
+          <img src="{{ auth()->user()->foto}}" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
           <p>{{ auth()->user()->name}}</p>
@@ -113,7 +113,7 @@
   <!-- Main Footer -->
   <footer class="main-footer">
     <!-- Default to the left -->
-    <strong>Emprendedores S.L.P &reg; 2018.</strong>
+    <strong>EmprendedoreSLP &reg; 2018.</strong>
   </footer>
 
   <!-- Control Sidebar -->
@@ -136,6 +136,26 @@
 <script src="/adminlte/plugins/datatables/dataTables.bootstrap.min.js"></script>
 <!-- AdminLTE App -->
 <script src="/adminlte/js/app.min.js"></script>
+
+<!-- Editor de texto -->
+<script src="https://cdn.ckeditor.com/4.9.2/standard/ckeditor.js"></script>
+<script>
+  CKEDITOR.replace('editor');
+</script>
+<!-- Fecha -->
+<script src="/adminlte/plugins/datepicker/bootstrap-datepicker.js"></script>
+<link rel="stylesheet" href="/adminlte/plugins/datepicker/datepicker3.css">
+<script>
+ $('#datepicker').datepicker({autoclose: true});
+</script>
+<!-- Hora -->
+<script src="/adminlte/plugins/timepicker/bootstrap-timepicker.min.js"></script>
+<link rel="stylesheet" href="/adminlte/plugins/timepicker/bootstrap-timepicker.min.css">
+<script>
+$(".timepicker").timepicker({
+      showInputs: false
+    });
+</script>
 <!-- page script -->
 <script>
   $(function () {

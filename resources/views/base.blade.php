@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <title>@yield('meta-title', config('app.name'))</title>
-        <meta name="description" content="@yield('meta-description', 'Emprendedores S.L.P. noticias, eventos y más forma parte de nosotros...')">
+        <meta name="description" content="@yield('meta-description', 'EmprendedoreSLP noticias, eventos y más forma parte de nosotros...')">
         <link rel="stylesheet" href="/css/normalize.css">
         <link rel="stylesheet" href="/css/framework.css">
         <link rel="stylesheet" href="/css/style.css">
@@ -16,7 +16,7 @@
     <body>
         <div class="preload"></div>
         <header class="space-inter">
-            <h1><center>Emprendedores S.L.P.</center></h1>
+            <h1><center>EmprendedoreSLP</center></h1>
             <div class="container container-flex space-between">
                 <figure class="logo"><a class="nav-link" href="{{ route('login') }}"><img src="/img/appicon.png" alt=""></a>
                 </figure>
@@ -55,6 +55,7 @@
         @endif
 
 @yield("container")
+
         <section class="footer">
             <footer>
                 <div class="container">
@@ -84,7 +85,7 @@
                     <div class="divider-2"></div>
                     <p>Un emprendedor ve soluciones donde otros ven problemas.</p>
                     <div class="divider-2" style="width: 100%;"></div>
-                    <p>Emprendedores S.L.P &reg; 2018.
+                    <p>EmprendedoreSLP &reg; 2018.
                 </div>
             </footer>
         </section>

@@ -22,7 +22,7 @@ class ChatsController extends Controller
     {
         
         $chats = Chat::all();
-         return response()->json($chats);
+        return response()->json($chats);
     }
 
     /**

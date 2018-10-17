@@ -16,7 +16,7 @@
 				<h4>Nombres</h4>
 				<ul class="list-group">
 					<li class="list-group-item"> 
-						{{$user->names}} {{$user->apeP}}
+						{{$user->name}} {{$user->apeP}}
 					</li>
 				</ul>
 				<h4>Correo</h4>

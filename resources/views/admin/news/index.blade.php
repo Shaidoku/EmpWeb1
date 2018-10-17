@@ -38,4 +38,30 @@
             </table>
         </div>
     </div>
+    <!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <form method="POST" action="{{route('admin.news.store')}}">
+    {{ csrf_field() }}
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="btn btn-danger" aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Nueva Noticia</h4>
+      </div>
+      <div class="modal-body">
+                        <div class="form-grup {{$errors->has('title') ? 'has-error' : ''}}">
+                  <label>Titulo</label>
+                    <input type="text" id="post-title" name="title" class="form-control" value="{{old('title')}}"
+                    placeholder="Ingresa titulo" autofocus required>
+                    {!!$errors->first('title','<span class="help-block">Campo obligatorio</span>')!!}
+                  </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-success">Crear</button>
+      </div>
+    </div>
+  </div>
+</form>
+</div>
+<!-- Fin Modal -->
 @stop
